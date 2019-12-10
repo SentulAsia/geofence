@@ -8,11 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		B85E0F152394DF3A00A9442B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F142394DF3A00A9442B /* AppDelegate.swift */; };
-		B85E0F172394DF3A00A9442B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F162394DF3A00A9442B /* ViewController.swift */; };
 		B85E0F1A2394DF3A00A9442B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85E0F182394DF3A00A9442B /* Main.storyboard */; };
 		B85E0F1C2394DF3F00A9442B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B85E0F1B2394DF3F00A9442B /* Assets.xcassets */; };
 		B85E0F1F2394DF3F00A9442B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B85E0F1D2394DF3F00A9442B /* LaunchScreen.storyboard */; };
-		B85E0F2A2394DF3F00A9442B /* geofenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F292394DF3F00A9442B /* geofenceTests.swift */; };
+		B85E0F4C2395D0E300A9442B /* StatusPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F462395D0E300A9442B /* StatusPresenter.swift */; };
+		B85E0F4D2395D0E300A9442B /* StatusWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F472395D0E300A9442B /* StatusWorker.swift */; };
+		B85E0F4E2395D0E300A9442B /* StatusRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F482395D0E300A9442B /* StatusRouter.swift */; };
+		B85E0F4F2395D0E300A9442B /* StatusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F492395D0E300A9442B /* StatusModels.swift */; };
+		B85E0F502395D0E300A9442B /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F4A2395D0E300A9442B /* StatusViewController.swift */; };
+		B85E0F512395D0E300A9442B /* StatusInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F4B2395D0E300A9442B /* StatusInteractor.swift */; };
+		B85E0F592395D0FE00A9442B /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F532395D0FE00A9442B /* MapPresenter.swift */; };
+		B85E0F5A2395D0FE00A9442B /* MapWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F542395D0FE00A9442B /* MapWorker.swift */; };
+		B85E0F5B2395D0FE00A9442B /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F552395D0FE00A9442B /* MapRouter.swift */; };
+		B85E0F5C2395D0FE00A9442B /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F562395D0FE00A9442B /* MapModels.swift */; };
+		B85E0F5D2395D0FE00A9442B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F572395D0FE00A9442B /* MapViewController.swift */; };
+		B85E0F5E2395D0FE00A9442B /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F582395D0FE00A9442B /* MapInteractor.swift */; };
+		B85E0F642395D11C00A9442B /* StatusViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F602395D11C00A9442B /* StatusViewControllerTests.swift */; };
+		B85E0F652395D11C00A9442B /* StatusInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F612395D11C00A9442B /* StatusInteractorTests.swift */; };
+		B85E0F662395D11C00A9442B /* StatusWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F622395D11C00A9442B /* StatusWorkerTests.swift */; };
+		B85E0F672395D11C00A9442B /* StatusPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F632395D11C00A9442B /* StatusPresenterTests.swift */; };
+		B85E0F6D2395D14C00A9442B /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F692395D14C00A9442B /* MapViewControllerTests.swift */; };
+		B85E0F6E2395D14C00A9442B /* MapInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F6A2395D14C00A9442B /* MapInteractorTests.swift */; };
+		B85E0F6F2395D14C00A9442B /* MapWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F6B2395D14C00A9442B /* MapWorkerTests.swift */; };
+		B85E0F702395D14C00A9442B /* MapPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F6C2395D14C00A9442B /* MapPresenterTests.swift */; };
+		B85E0F732395D24200A9442B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F722395D24200A9442B /* Constants.swift */; };
+		B8650CEF239E26B400D2E71D /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CEE239E26B400D2E71D /* GeofenceManager.swift */; };
+		B8650CF1239E27A800D2E71D /* GeofenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CF0239E27A800D2E71D /* GeofenceWorker.swift */; };
+		B8650CFA239E38FF00D2E71D /* GeofenceListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CF4239E38FF00D2E71D /* GeofenceListPresenter.swift */; };
+		B8650CFB239E38FF00D2E71D /* GeofenceListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CF5239E38FF00D2E71D /* GeofenceListWorker.swift */; };
+		B8650CFC239E38FF00D2E71D /* GeofenceListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CF6239E38FF00D2E71D /* GeofenceListRouter.swift */; };
+		B8650CFD239E38FF00D2E71D /* GeofenceListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CF7239E38FF00D2E71D /* GeofenceListModels.swift */; };
+		B8650CFE239E38FF00D2E71D /* GeofenceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CF8239E38FF00D2E71D /* GeofenceListViewController.swift */; };
+		B8650CFF239E38FF00D2E71D /* GeofenceListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CF9239E38FF00D2E71D /* GeofenceListInteractor.swift */; };
+		B8C8A38C23A05D0A001AB40F /* WifiSSIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +56,42 @@
 /* Begin PBXFileReference section */
 		B85E0F112394DF3A00A9442B /* geofence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = geofence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85E0F142394DF3A00A9442B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B85E0F162394DF3A00A9442B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B85E0F192394DF3A00A9442B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B85E0F1B2394DF3F00A9442B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B85E0F1E2394DF3F00A9442B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B85E0F202394DF3F00A9442B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85E0F252394DF3F00A9442B /* geofenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = geofenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B85E0F292394DF3F00A9442B /* geofenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geofenceTests.swift; sourceTree = "<group>"; };
 		B85E0F2B2394DF3F00A9442B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B85E0F462395D0E300A9442B /* StatusPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPresenter.swift; sourceTree = "<group>"; };
+		B85E0F472395D0E300A9442B /* StatusWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusWorker.swift; sourceTree = "<group>"; };
+		B85E0F482395D0E300A9442B /* StatusRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRouter.swift; sourceTree = "<group>"; };
+		B85E0F492395D0E300A9442B /* StatusModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModels.swift; sourceTree = "<group>"; };
+		B85E0F4A2395D0E300A9442B /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		B85E0F4B2395D0E300A9442B /* StatusInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusInteractor.swift; sourceTree = "<group>"; };
+		B85E0F532395D0FE00A9442B /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		B85E0F542395D0FE00A9442B /* MapWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWorker.swift; sourceTree = "<group>"; };
+		B85E0F552395D0FE00A9442B /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
+		B85E0F562395D0FE00A9442B /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
+		B85E0F572395D0FE00A9442B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B85E0F582395D0FE00A9442B /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		B85E0F602395D11C00A9442B /* StatusViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewControllerTests.swift; sourceTree = "<group>"; };
+		B85E0F612395D11C00A9442B /* StatusInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusInteractorTests.swift; sourceTree = "<group>"; };
+		B85E0F622395D11C00A9442B /* StatusWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusWorkerTests.swift; sourceTree = "<group>"; };
+		B85E0F632395D11C00A9442B /* StatusPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPresenterTests.swift; sourceTree = "<group>"; };
+		B85E0F692395D14C00A9442B /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
+		B85E0F6A2395D14C00A9442B /* MapInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractorTests.swift; sourceTree = "<group>"; };
+		B85E0F6B2395D14C00A9442B /* MapWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWorkerTests.swift; sourceTree = "<group>"; };
+		B85E0F6C2395D14C00A9442B /* MapPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenterTests.swift; sourceTree = "<group>"; };
+		B85E0F722395D24200A9442B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B8650CEE239E26B400D2E71D /* GeofenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
+		B8650CF0239E27A800D2E71D /* GeofenceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceWorker.swift; sourceTree = "<group>"; };
+		B8650CF4239E38FF00D2E71D /* GeofenceListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceListPresenter.swift; sourceTree = "<group>"; };
+		B8650CF5239E38FF00D2E71D /* GeofenceListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceListWorker.swift; sourceTree = "<group>"; };
+		B8650CF6239E38FF00D2E71D /* GeofenceListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceListRouter.swift; sourceTree = "<group>"; };
+		B8650CF7239E38FF00D2E71D /* GeofenceListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceListModels.swift; sourceTree = "<group>"; };
+		B8650CF8239E38FF00D2E71D /* GeofenceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceListViewController.swift; sourceTree = "<group>"; };
+		B8650CF9239E38FF00D2E71D /* GeofenceListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceListInteractor.swift; sourceTree = "<group>"; };
+		B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiSSIDTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +133,11 @@
 		B85E0F132394DF3A00A9442B /* geofence */ = {
 			isa = PBXGroup;
 			children = (
+				B8650CED239E268A00D2E71D /* Shared */,
+				B85E0F522395D0E800A9442B /* Status */,
+				B8650D00239E390300D2E71D /* GeofenceList */,
+				B85E0F5F2395D10300A9442B /* Map */,
 				B85E0F142394DF3A00A9442B /* AppDelegate.swift */,
-				B85E0F162394DF3A00A9442B /* ViewController.swift */,
 				B85E0F182394DF3A00A9442B /* Main.storyboard */,
 				B85E0F1B2394DF3F00A9442B /* Assets.xcassets */,
 				B85E0F1D2394DF3F00A9442B /* LaunchScreen.storyboard */,
@@ -90,10 +149,83 @@
 		B85E0F282394DF3F00A9442B /* geofenceTests */ = {
 			isa = PBXGroup;
 			children = (
-				B85E0F292394DF3F00A9442B /* geofenceTests.swift */,
+				B85E0F682395D12F00A9442B /* Status */,
+				B85E0F712395D14F00A9442B /* Map */,
 				B85E0F2B2394DF3F00A9442B /* Info.plist */,
 			);
 			path = geofenceTests;
+			sourceTree = "<group>";
+		};
+		B85E0F522395D0E800A9442B /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				B85E0F462395D0E300A9442B /* StatusPresenter.swift */,
+				B85E0F472395D0E300A9442B /* StatusWorker.swift */,
+				B85E0F482395D0E300A9442B /* StatusRouter.swift */,
+				B85E0F492395D0E300A9442B /* StatusModels.swift */,
+				B85E0F4A2395D0E300A9442B /* StatusViewController.swift */,
+				B85E0F4B2395D0E300A9442B /* StatusInteractor.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		B85E0F5F2395D10300A9442B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B85E0F532395D0FE00A9442B /* MapPresenter.swift */,
+				B85E0F542395D0FE00A9442B /* MapWorker.swift */,
+				B85E0F552395D0FE00A9442B /* MapRouter.swift */,
+				B85E0F562395D0FE00A9442B /* MapModels.swift */,
+				B85E0F572395D0FE00A9442B /* MapViewController.swift */,
+				B85E0F582395D0FE00A9442B /* MapInteractor.swift */,
+				B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		B85E0F682395D12F00A9442B /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				B85E0F602395D11C00A9442B /* StatusViewControllerTests.swift */,
+				B85E0F612395D11C00A9442B /* StatusInteractorTests.swift */,
+				B85E0F622395D11C00A9442B /* StatusWorkerTests.swift */,
+				B85E0F632395D11C00A9442B /* StatusPresenterTests.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		B85E0F712395D14F00A9442B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				B85E0F692395D14C00A9442B /* MapViewControllerTests.swift */,
+				B85E0F6A2395D14C00A9442B /* MapInteractorTests.swift */,
+				B85E0F6B2395D14C00A9442B /* MapWorkerTests.swift */,
+				B85E0F6C2395D14C00A9442B /* MapPresenterTests.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		B8650CED239E268A00D2E71D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B85E0F722395D24200A9442B /* Constants.swift */,
+				B8650CEE239E26B400D2E71D /* GeofenceManager.swift */,
+				B8650CF0239E27A800D2E71D /* GeofenceWorker.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B8650D00239E390300D2E71D /* GeofenceList */ = {
+			isa = PBXGroup;
+			children = (
+				B8650CF4239E38FF00D2E71D /* GeofenceListPresenter.swift */,
+				B8650CF5239E38FF00D2E71D /* GeofenceListWorker.swift */,
+				B8650CF6239E38FF00D2E71D /* GeofenceListRouter.swift */,
+				B8650CF7239E38FF00D2E71D /* GeofenceListModels.swift */,
+				B8650CF8239E38FF00D2E71D /* GeofenceListViewController.swift */,
+				B8650CF9239E38FF00D2E71D /* GeofenceListInteractor.swift */,
+			);
+			path = GeofenceList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +329,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B85E0F172394DF3A00A9442B /* ViewController.swift in Sources */,
+				B85E0F4D2395D0E300A9442B /* StatusWorker.swift in Sources */,
+				B85E0F4C2395D0E300A9442B /* StatusPresenter.swift in Sources */,
+				B85E0F5A2395D0FE00A9442B /* MapWorker.swift in Sources */,
+				B85E0F4F2395D0E300A9442B /* StatusModels.swift in Sources */,
+				B85E0F592395D0FE00A9442B /* MapPresenter.swift in Sources */,
+				B8650CF1239E27A800D2E71D /* GeofenceWorker.swift in Sources */,
+				B85E0F4E2395D0E300A9442B /* StatusRouter.swift in Sources */,
+				B85E0F502395D0E300A9442B /* StatusViewController.swift in Sources */,
+				B85E0F732395D24200A9442B /* Constants.swift in Sources */,
+				B85E0F5E2395D0FE00A9442B /* MapInteractor.swift in Sources */,
+				B85E0F5D2395D0FE00A9442B /* MapViewController.swift in Sources */,
+				B8650CFE239E38FF00D2E71D /* GeofenceListViewController.swift in Sources */,
+				B8650CFD239E38FF00D2E71D /* GeofenceListModels.swift in Sources */,
+				B8650CFB239E38FF00D2E71D /* GeofenceListWorker.swift in Sources */,
+				B85E0F5B2395D0FE00A9442B /* MapRouter.swift in Sources */,
 				B85E0F152394DF3A00A9442B /* AppDelegate.swift in Sources */,
+				B85E0F512395D0E300A9442B /* StatusInteractor.swift in Sources */,
+				B8650CFA239E38FF00D2E71D /* GeofenceListPresenter.swift in Sources */,
+				B8C8A38C23A05D0A001AB40F /* WifiSSIDTableViewCell.swift in Sources */,
+				B8650CFF239E38FF00D2E71D /* GeofenceListInteractor.swift in Sources */,
+				B85E0F5C2395D0FE00A9442B /* MapModels.swift in Sources */,
+				B8650CEF239E26B400D2E71D /* GeofenceManager.swift in Sources */,
+				B8650CFC239E38FF00D2E71D /* GeofenceListRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +359,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B85E0F2A2394DF3F00A9442B /* geofenceTests.swift in Sources */,
+				B85E0F6F2395D14C00A9442B /* MapWorkerTests.swift in Sources */,
+				B85E0F642395D11C00A9442B /* StatusViewControllerTests.swift in Sources */,
+				B85E0F6E2395D14C00A9442B /* MapInteractorTests.swift in Sources */,
+				B85E0F702395D14C00A9442B /* MapPresenterTests.swift in Sources */,
+				B85E0F672395D11C00A9442B /* StatusPresenterTests.swift in Sources */,
+				B85E0F652395D11C00A9442B /* StatusInteractorTests.swift in Sources */,
+				B85E0F6D2395D14C00A9442B /* MapViewControllerTests.swift in Sources */,
+				B85E0F662395D11C00A9442B /* StatusWorkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

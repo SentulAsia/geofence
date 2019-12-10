@@ -77,7 +77,6 @@
         <!--Geofence-->
         <scene sceneID="Vg3-za-lF4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XpD-Xz-oHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="GeofenceListVC" id="aFu-sF-xm5" customClass="GeofenceListTableViewController" customModule="geofence" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ahl-Fz-icX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -115,12 +114,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Geofence" id="bXH-O9-6Ra">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XwH-zD-q1o"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XwH-zD-q1o">
+                            <connections>
+                                <action selector="performAddGeofence:" destination="aFu-sF-xm5" id="3fx-bu-6z4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="MWw-q7-ohe" kind="show" id="UzZ-DW-zZU"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XpD-Xz-oHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2209" y="122"/>
         </scene>
@@ -162,7 +166,7 @@
                                     <constraint firstAttribute="height" constant="44" id="0qh-fF-5Et"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="v9U-HP-vUy" rowHeight="44" style="IBUITableViewCellStyleDefault" id="vay-dJ-2GN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="WifiSSIDCell" textLabel="v9U-HP-vUy" rowHeight="44" style="IBUITableViewCellStyleDefault" id="vay-dJ-2GN" customClass="WifiSSIDTableViewCell" customModule="geofence" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vay-dJ-2GN" id="Ldl-qh-nIa">
@@ -215,6 +219,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iYS-jk-Kfq"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="U5m-FE-PnV" id="v0n-Xv-EAg"/>
+                        <outlet property="tableViewHeightConstraint" destination="0qh-fF-5Et" id="BAk-0z-HH2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whr-VV-fNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
