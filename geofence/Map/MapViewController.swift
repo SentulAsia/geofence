@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
 protocol MapDisplayLogic: class {
     func displayFetchFromLocalDataStore(with viewModel: MapModels.FetchFromLocalDataStore.ViewModel)
-    func displayFetchFromRemoteDataStore(with viewModel: MapModels.FetchFromRemoteDataStore.ViewModel)
-    func displayPerformMap(with viewModel: MapModels.PerformMap.ViewModel)
+    func displayPerformChangeRadiusValue(with viewModel: MapModels.PerformChangeRadiusValue.ViewModel)
+    func displayPerformAddGeofence(with viewModel: MapModels.PerformAddGeofence.ViewModel)
 }
 
 class MapViewController: UIViewController, MapDisplayLogic {
@@ -23,6 +24,8 @@ class MapViewController: UIViewController, MapDisplayLogic {
 
     enum Constants {
         static let identifier = "MapVC"
+        static let regionMeters: CLLocationDistance = 10000
+        static let errorHeight: CGFloat = 88
     }
 
     // MARK: - Object lifecycle
@@ -59,11 +62,7 @@ class MapViewController: UIViewController, MapDisplayLogic {
         super.viewDidLoad()
         setupFetchFromLocalDataStore()
         setupTableView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupFetchFromRemoteDataStore()
+        setupNoticeView()
     }
 
     // MARK: - Table View
@@ -76,61 +75,81 @@ class MapViewController: UIViewController, MapDisplayLogic {
         tableViewHeightConstraint.constant = 0
     }
 
+    // MARK: - Map View
+
+    @IBOutlet var mapView: MKMapView!
+    func setupMapView() {
+        if let coordinate = mapView.userLocation.location?.coordinate {
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: Constants.regionMeters, longitudinalMeters: Constants.regionMeters)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+
+    // MARK: - Notice View
+
+    @IBOutlet var noticeLabel: UILabel!
+    @IBOutlet var noticeViewHeightConstraint: NSLayoutConstraint!
+    func setupNoticeView() {
+        noticeLabel.text = ""
+        noticeViewHeightConstraint.constant = 0
+    }
+
     // MARK: - Use Case - Fetch From Local DataStore
 
-    @IBOutlet var exampleLocalLabel: UILabel! = UILabel()
+    @IBOutlet var addGeofenceButton: UIButton!
+    @IBOutlet var radiusLabel: UILabel!
+    @IBOutlet var stepper: UIStepper!
     func setupFetchFromLocalDataStore() {
         let request = MapModels.FetchFromLocalDataStore.Request()
         interactor?.fetchFromLocalDataStore(with: request)
     }
 
     func displayFetchFromLocalDataStore(with viewModel: MapModels.FetchFromLocalDataStore.ViewModel) {
-        exampleLocalLabel.text = viewModel.exampleTranslation
+        addGeofenceButton.setTitle(viewModel.geofenceButtonText, for: .normal)
+        performChangeRadiusValue(self)
     }
 
-    // MARK: - Use Case - Fetch From Remote DataStore
+    // MARK: - Use Case - Change Radius Value
 
-    @IBOutlet var exampleRemoteLabel: UILabel! = UILabel()
-    func setupFetchFromRemoteDataStore() {
-        let request = MapModels.FetchFromRemoteDataStore.Request()
-        interactor?.fetchFromRemoteDataStore(with: request)
+    @IBAction func performChangeRadiusValue(_ sender: Any) {
+        noticeViewHeightConstraint.constant = 0
+
+        let request = MapModels.PerformChangeRadiusValue.Request(radiusValue: stepper.value.intValue)
+        interactor?.performChangeRadiusValue(with: request)
     }
 
-    func displayFetchFromRemoteDataStore(with viewModel: MapModels.FetchFromRemoteDataStore.ViewModel) {
-        exampleRemoteLabel.text = viewModel.exampleVariable
+    func displayPerformChangeRadiusValue(with viewModel: MapModels.PerformChangeRadiusValue.ViewModel) {
+        radiusLabel.text = viewModel.radiusLabelText
     }
 
-    // MARK: - Use Case - Map
+    // MARK: - Use Case - Add Geofence
 
-    func performMap(_ sender: Any) {
-        let request = MapModels.PerformMap.Request(exampleVariable: exampleLocalLabel.text)
-        interactor?.performMap(with: request)
+    @IBAction  func performAddGeofence(_ sender: Any) {
+        let request = MapModels.PerformAddGeofence.Request(coordinate: mapView.centerCoordinate, radiusValue: stepper.value.intValue)
+        interactor?.performAddGeofence(with: request)
     }
 
-    func displayPerformMap(with viewModel: MapModels.PerformMap.ViewModel) {
-        // handle error and ui element error states
-        // based on error type
+    func displayPerformAddGeofence(with viewModel: MapModels.PerformAddGeofence.ViewModel) {
         if let error = viewModel.error {
             switch error.type {
-            case .emptyExampleVariable:
-                exampleLocalLabel.text = error.message
+            case .invalidRadius:
+                noticeLabel.text = error.message
 
-            case .apiError:
-                exampleLocalLabel.text = error.message
+            case .invalidCoordinate:
+                noticeLabel.text = error.message
             }
+
+            noticeViewHeightConstraint.constant = Constants.errorHeight
             return
         }
 
-        // handle ui element success state and
-        // route to next screen
-        router?.routeToNext()
+        router?.routeToGeofenceStatus()
     }
 }
 
 // MARK: - Table View Data Source
 
 extension MapViewController: UITableViewDataSource {
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: handle this in Wifi SSID task
         return 0

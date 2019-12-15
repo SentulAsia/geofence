@@ -10,12 +10,11 @@ import UIKit
 
 protocol MapBusinessLogic {
     func fetchFromLocalDataStore(with request: MapModels.FetchFromLocalDataStore.Request)
-    func fetchFromRemoteDataStore(with request: MapModels.FetchFromRemoteDataStore.Request)
-    func performMap(with request: MapModels.PerformMap.Request)
+    func performChangeRadiusValue(with request: MapModels.PerformChangeRadiusValue.Request)
+    func performAddGeofence(with request: MapModels.PerformAddGeofence.Request)
 }
 
 protocol MapDataStore {
-    var exampleVariable: String? { get set }
 }
 
 class MapInteractor: MapBusinessLogic, MapDataStore {
@@ -24,7 +23,6 @@ class MapInteractor: MapBusinessLogic, MapDataStore {
 
     var worker: MapWorker? = MapWorker()
     var presenter: MapPresentationLogic?
-    var exampleVariable: String?
 
     // MARK: - Use Case - Fetch From Local DataStore
 
@@ -33,38 +31,29 @@ class MapInteractor: MapBusinessLogic, MapDataStore {
         presenter?.presentFetchFromLocalDataStore(with: response)
     }
 
-    // MARK: - Use Case - Fetch From Remote DataStore
+    // MARK: - Use Case - Change Radius Value
 
-    func fetchFromRemoteDataStore(with request: MapModels.FetchFromRemoteDataStore.Request) {
-        worker?.fetchFromRemoteDataStore(completion: {
-            [weak self] code in
-            let response = MapModels.FetchFromRemoteDataStore.Response(exampleVariable: code)
-            self?.presenter?.presentFetchFromRemoteDataStore(with: response)
-        })
+    func performChangeRadiusValue(with request: MapModels.PerformChangeRadiusValue.Request) {
+        let response = MapModels.PerformChangeRadiusValue.Response(radiusValue: request.radiusValue)
+        presenter?.presentPerformChangeRadiusValue(with: response)
     }
 
-    // MARK: - Use Case - Map
+    // MARK: - Use Case - Add Geofence
 
-    func performMap(with request: MapModels.PerformMap.Request) {
-        worker?.validate(exampleVariable: request.exampleVariable)
+    func performAddGeofence(with request: MapModels.PerformAddGeofence.Request) {
+        worker?.validate(coordinate: request.coordinate, radiusValue: request.radiusValue)
 
         if let error = worker?.error {
-            let response = MapModels.PerformMap.Response(error: error)
-            presenter?.presentPerformMap(with: response)
+            let response = MapModels.PerformAddGeofence.Response(error: error)
+            presenter?.presentPerformAddGeofence(with: response)
             return
         }
 
-        worker?.performMap(completion: {
-            [weak self, request] isSuccessful, error in
+        worker?.performAddGeofence(coordinate: request.coordinate, radiusValue: request.radiusValue, completion: {
+            [weak self] isSuccessful, error in
 
-            if isSuccessful {
-                // do something on success
-                let goodExample = request.exampleVariable ?? ""
-                self?.exampleVariable = goodExample
-            }
-
-            let response = MapModels.PerformMap.Response(error: error)
-            self?.presenter?.presentPerformMap(with: response)
+            let response = MapModels.PerformAddGeofence.Response(error: error)
+            self?.presenter?.presentPerformAddGeofence(with: response)
         })
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MapWorker {
 
@@ -17,39 +18,26 @@ class MapWorker {
 
     // MARK: - Methods
 
-    // MARK: Fetch From Remote DataStore
-
-    func fetchFromRemoteDataStore(completion: (_ code: String) -> Void) {
-        // fetch something from backend,
-        // and return the values here
-        let code = "0000"
-        completion(code)
-    }
-
     // MARK: Validation
 
-    func validate(exampleVariable: String?) {
-        if exampleVariable?.isEmpty == false {
-            error = nil
+    func validate(coordinate: CLLocationCoordinate2D, radiusValue: Int) {
+        // TODO: validate coordinate
+        if radiusValue < 100 || radiusValue > 2128000 {
+            error = MapModels.Error<ErrorType>(type: .invalidRadius)
         }
         else {
-            error = MapModels.Error<ErrorType>(type: .emptyExampleVariable)
+            error = nil
         }
     }
 
-    // MARK: Track Analytics
+    // MARK: Perform Add Geofence
 
-    func trackAnalytics(event: MapModels.AnalyticsEvents) {
-        switch event {
-        case .screenView:
-            // call analytics library/wrapper here to track analytics
-            break
-        }
-    }
+    func performAddGeofence(coordinate: CLLocationCoordinate2D, radiusValue: Int, completion: @escaping (Bool, MapModels.Error<ErrorType>?) -> Void) {
 
-    // MARK: Perform Map
+        DataStore.shared.coordinate1 = coordinate.latitude
+        DataStore.shared.coordinate2 = coordinate.longitude
+        DataStore.shared.radius = radiusValue
 
-    func performMap(completion: @escaping (Bool, MapModels.Error<ErrorType>?) -> Void) {
         let isSuccessful = true
         let error: MapModels.Error<ErrorType>? = nil
 

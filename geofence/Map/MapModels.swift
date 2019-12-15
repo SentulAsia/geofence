@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 enum MapModels {
 
@@ -20,26 +21,28 @@ enum MapModels {
         }
 
         struct ViewModel {
-            var exampleTranslation: String?
+            var geofenceButtonText: String
         }
     }
 
-    enum FetchFromRemoteDataStore {
+    enum PerformChangeRadiusValue {
         struct Request {
+            var radiusValue: Int
         }
 
         struct Response {
-            var exampleVariable: String?
+            var radiusValue: Int
         }
 
         struct ViewModel {
-            var exampleVariable: String?
+            var radiusLabelText: String
         }
     }
 
-    enum PerformMap {
+    enum PerformAddGeofence {
         struct Request {
-            var exampleVariable: String?
+            var coordinate: CLLocationCoordinate2D
+            var radiusValue: Int
         }
 
         struct Response {
@@ -54,7 +57,7 @@ enum MapModels {
     // MARK: - View Models
 
     enum MapErrorType {
-        case emptyExampleVariable, apiError
+        case invalidRadius, invalidCoordinate
     }
 
     struct Error<T> {

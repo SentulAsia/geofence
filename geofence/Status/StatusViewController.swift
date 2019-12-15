@@ -62,14 +62,14 @@ class StatusViewController: UIViewController, StatusDisplayLogic {
 
     // MARK: - Use Case - Fetch From Local DataStore
 
-    @IBOutlet var geofenceStatus: UILabel!
+    @IBOutlet var geofenceStatusLabel: UILabel!
     func setupFetchFromLocalDataStore() {
         let request = StatusModels.FetchFromLocalDataStore.Request()
         interactor?.fetchFromLocalDataStore(with: request)
     }
 
     func displayFetchFromLocalDataStore(with viewModel: StatusModels.FetchFromLocalDataStore.ViewModel) {
-        geofenceStatus.text = viewModel.geofenceStatus
+        geofenceStatusLabel.text = viewModel.geofenceStatus
     }
 
     // MARK: - Use Case - Fetch Geofence Status
@@ -80,12 +80,12 @@ class StatusViewController: UIViewController, StatusDisplayLogic {
     }
 
     func displayFetchGeofenceStatus(with viewModel: StatusModels.FetchGeofenceStatus.ViewModel) {
-        geofenceStatus.text = viewModel.geofenceStatus
+        geofenceStatusLabel.text = viewModel.geofenceStatus
     }
 
-    // MARK: - Use Case - Get Geofence List
+    // MARK: - Use Case - Add Geofence
 
-    @IBAction func performGetGeofenceList(_ sender: Any) {
-        router?.routeToGeofenceList()
+    @IBAction func performAddGeofence(_ sender: Any) {
+        router?.routeToAddGeofence()
     }
 }

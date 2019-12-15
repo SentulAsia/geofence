@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0H-gd-VMA">
-                                <rect key="frame" x="20" y="239" width="374" height="374"/>
+                                <rect key="frame" x="20" y="213" width="374" height="374"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5j6-sy-GhH">
                                         <rect key="frame" x="8" y="8" width="358" height="358"/>
@@ -36,10 +37,10 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wi-fi-disconnected" translatesAutoresizingMaskIntoConstraints="NO" id="fVr-1A-75Y">
-                                <rect key="frame" x="344" y="563" width="50" height="50"/>
+                                <rect key="frame" x="344" y="537" width="50" height="50"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khT-AV-o7s">
-                                <rect key="frame" x="16" y="415.66666666666669" width="382" height="21"/>
+                                <rect key="frame" x="16" y="389.66666666666669" width="382" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,74 +60,20 @@
                         <viewLayoutGuide key="safeArea" id="Pda-wl-Heq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Status" id="zbT-Ye-kFb">
-                        <barButtonItem key="rightBarButtonItem" title="Geofence" id="xtl-Mo-U72">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xtl-Mo-U72">
                             <connections>
-                                <action selector="performGetGeofenceList:" destination="2ER-jQ-B4O" id="IkU-Zk-Jnq"/>
+                                <action selector="performAddGeofence:" destination="2ER-jQ-B4O" id="loJ-K4-XM4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="geofenceStatus" destination="khT-AV-o7s" id="vgp-fP-RvZ"/>
-                        <segue destination="aFu-sF-xm5" kind="show" id="NbD-Yv-J1a"/>
+                        <outlet property="geofenceStatusLabel" destination="khT-AV-o7s" id="Shm-X9-DzN"/>
+                        <segue destination="MWw-q7-ohe" kind="show" id="83u-m7-IPV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0A-rx-Epy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1326.0869565217392" y="122.28260869565219"/>
-        </scene>
-        <!--Geofence-->
-        <scene sceneID="Vg3-za-lF4">
-            <objects>
-                <tableViewController storyboardIdentifier="GeofenceListVC" id="aFu-sF-xm5" customClass="GeofenceListTableViewController" customModule="geofence" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ahl-Fz-icX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="TNS-by-3h5" detailTextLabel="n28-4o-Oi6" style="IBUITableViewCellStyleSubtitle" id="irX-Ec-ZxM">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="irX-Ec-ZxM" id="agE-cc-3jA">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TNS-by-3h5">
-                                            <rect key="frame" x="20.000000000000004" y="5" width="33.333333333333336" height="20.333333333333332"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n28-4o-Oi6">
-                                            <rect key="frame" x="19.999999999999996" y="25.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="aFu-sF-xm5" id="SfG-Sh-Vq2"/>
-                            <outlet property="delegate" destination="aFu-sF-xm5" id="ggQ-jx-GNd"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Geofence" id="bXH-O9-6Ra">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XwH-zD-q1o">
-                            <connections>
-                                <action selector="performAddGeofence:" destination="aFu-sF-xm5" id="3fx-bu-6z4"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="MWw-q7-ohe" kind="show" id="UzZ-DW-zZU"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XpD-Xz-oHC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2209" y="122"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="OGl-zR-911">
@@ -136,8 +83,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcW-dB-iHh">
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sY-59-g9E">
+                                        <rect key="frame" x="20" y="8" width="374" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6sY-59-g9E" secondAttribute="trailing" constant="20" id="Nvh-Hw-wM8"/>
+                                    <constraint firstItem="6sY-59-g9E" firstAttribute="top" secondItem="tcW-dB-iHh" secondAttribute="top" constant="8" id="brn-du-mmx"/>
+                                    <constraint firstAttribute="height" constant="44" id="fPy-Q4-CdS"/>
+                                    <constraint firstAttribute="bottom" secondItem="6sY-59-g9E" secondAttribute="bottom" constant="8" id="fVU-T7-tDe"/>
+                                    <constraint firstItem="6sY-59-g9E" firstAttribute="leading" secondItem="tcW-dB-iHh" secondAttribute="leading" constant="20" id="gFg-dN-eIj"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gg2-0z-KU4">
-                                <rect key="frame" x="0.0" y="116" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJO-0L-c3q">
                                         <rect key="frame" x="20" y="12" width="272" height="21"/>
@@ -145,8 +111,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nTE-cW-5YS">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" maximumValue="2128000" translatesAutoresizingMaskIntoConstraints="NO" id="nTE-cW-5YS">
                                         <rect key="frame" x="312" y="8" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="performChangeRadiusValue:" destination="MWw-q7-ohe" eventType="valueChanged" id="f0V-0r-GHp"/>
+                                        </connections>
                                     </stepper>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -160,7 +129,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U5m-FE-PnV">
-                                <rect key="frame" x="0.0" y="161" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="153" width="414" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0qh-fF-5Et"/>
@@ -187,11 +156,11 @@
                                 <sections/>
                             </tableView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X88-4v-mdt">
-                                <rect key="frame" x="0.0" y="205" width="414" height="487"/>
+                                <rect key="frame" x="0.0" y="197" width="414" height="495"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXD-i5-ja4">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="Primary CTA"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="8P0-yx-8x5"/>
                                 </constraints>
@@ -199,6 +168,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="performAddGeofence:" destination="MWw-q7-ohe" eventType="touchUpInside" id="zCD-qo-Tm5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -211,30 +183,39 @@
                             <constraint firstAttribute="trailing" secondItem="X88-4v-mdt" secondAttribute="trailing" id="DHy-pT-DnH"/>
                             <constraint firstItem="X88-4v-mdt" firstAttribute="top" secondItem="U5m-FE-PnV" secondAttribute="bottom" id="G6s-i6-eA6"/>
                             <constraint firstItem="X88-4v-mdt" firstAttribute="leading" secondItem="kNz-eC-TEa" secondAttribute="leading" id="MyA-ea-Sfv"/>
+                            <constraint firstItem="tcW-dB-iHh" firstAttribute="leading" secondItem="kNz-eC-TEa" secondAttribute="leading" id="X5H-Sn-Wjv"/>
                             <constraint firstItem="U5m-FE-PnV" firstAttribute="leading" secondItem="kNz-eC-TEa" secondAttribute="leading" id="YQn-0G-1KT"/>
+                            <constraint firstItem="gg2-0z-KU4" firstAttribute="top" secondItem="tcW-dB-iHh" secondAttribute="bottom" id="YWS-o5-GKi"/>
                             <constraint firstItem="UXD-i5-ja4" firstAttribute="top" secondItem="X88-4v-mdt" secondAttribute="bottom" id="gj8-kb-TnH"/>
-                            <constraint firstItem="gg2-0z-KU4" firstAttribute="top" secondItem="iYS-jk-Kfq" secondAttribute="top" id="h9P-By-KOz"/>
+                            <constraint firstAttribute="trailing" secondItem="tcW-dB-iHh" secondAttribute="trailing" id="h4Z-KE-fK7"/>
                             <constraint firstAttribute="trailing" secondItem="gg2-0z-KU4" secondAttribute="trailing" id="m5W-VE-7FG"/>
+                            <constraint firstItem="tcW-dB-iHh" firstAttribute="top" secondItem="iYS-jk-Kfq" secondAttribute="top" id="tNZ-tA-Dqb"/>
                             <constraint firstAttribute="trailing" secondItem="UXD-i5-ja4" secondAttribute="trailing" id="yO9-It-X4t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iYS-jk-Kfq"/>
                     </view>
                     <connections>
+                        <outlet property="addGeofenceButton" destination="UXD-i5-ja4" id="OPL-Wr-99C"/>
+                        <outlet property="mapView" destination="X88-4v-mdt" id="w91-KP-jgO"/>
+                        <outlet property="noticeLabel" destination="6sY-59-g9E" id="lev-OO-PHg"/>
+                        <outlet property="noticeViewHeightConstraint" destination="fPy-Q4-CdS" id="Mtt-zs-0V6"/>
+                        <outlet property="radiusLabel" destination="jJO-0L-c3q" id="T4G-Jo-kVs"/>
+                        <outlet property="stepper" destination="nTE-cW-5YS" id="4uG-YE-vgy"/>
                         <outlet property="tableView" destination="U5m-FE-PnV" id="v0n-Xv-EAg"/>
                         <outlet property="tableViewHeightConstraint" destination="0qh-fF-5Et" id="BAk-0z-HH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whr-VV-fNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3095.6521739130435" y="120.65217391304348"/>
+            <point key="canvasLocation" x="2214" y="122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q5m-hG-OI7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O7S-Fh-nY3" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="tqU-6Z-mgb">
-                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tqU-6Z-mgb">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -249,5 +230,8 @@
     </scenes>
     <resources>
         <image name="wi-fi-disconnected" width="50" height="50"/>
+        <namedColor name="Primary CTA">
+            <color red="0.0" green="0.47450980392156861" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol StatusRoutingLogic {
-    func routeToGeofenceList()
+    func routeToAddGeofence()
 }
 
 protocol StatusDataPassing {
@@ -25,8 +25,8 @@ class StatusRouter: NSObject, StatusRoutingLogic, StatusDataPassing {
 
     // MARK: - Routing
 
-    func routeToGeofenceList() {
-         let destinationVC = UIStoryboard(name: Constants.mainStoryboard, bundle: nil).instantiateViewController(withIdentifier: GeofenceListTableViewController.Constants.identifier) as! GeofenceListTableViewController
+    func routeToAddGeofence() {
+         let destinationVC = UIStoryboard(name: Constants.mainStoryboard, bundle: nil).instantiateViewController(withIdentifier: MapViewController.Constants.identifier) as! MapViewController
 //         var destinationDS = destinationVC.router!.dataStore!
 //         passDataTo(destinationDS, from: dataStore!)
          viewController?.navigationController?.pushViewController(destinationVC, animated: true)

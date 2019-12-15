@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MapRoutingLogic {
-    func routeToNext()
+    func routeToGeofenceStatus()
 }
 
 protocol MapDataPassing {
@@ -25,7 +25,8 @@ class MapRouter: NSObject, MapRoutingLogic, MapDataPassing {
 
     // MARK: - Routing
 
-    func routeToNext() {
+    func routeToGeofenceStatus() {
+        viewController?.navigationController?.popViewController(animated: true)
         // let destinationVC = UIStoryboard(name: "", bundle: nil).instantiateViewController(withIdentifier: "") as! NextViewController
         // var destinationDS = destinationVC.router!.dataStore!
         // passDataTo(destinationDS, from: dataStore!)
