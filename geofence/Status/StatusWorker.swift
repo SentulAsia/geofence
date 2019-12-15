@@ -7,41 +7,35 @@
 //
 
 import UIKit
+import CoreLocation
 
-class StatusWorker {
+class StatusWorker: NSObject {
 
     // MARK: - Properties
 
     typealias ErrorType = StatusModels.StatusErrorType
     var error: StatusModels.Error<ErrorType>?
+    let locationManager = CLLocationManager()
+    var status = StatusModels.GeofenceStatus.unknown
 
     // MARK: - Methods
 
     // MARK: Fetch Geofence Status
 
     func fetchGeofenceStatus(completion: (_ status: StatusModels.GeofenceStatus) -> Void) {
-        // TODO: get actual geofence status
-        let status = StatusModels.GeofenceStatus.outside
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+
         completion(status)
     }
+}
 
-    // MARK: Validation
-
-    func validate(exampleVariable: String?) {
-        if exampleVariable?.isEmpty == false {
-            error = nil
-        }
-        else {
-            error = StatusModels.Error<ErrorType>(type: .emptyExampleVariable)
-        }
+extension StatusWorker: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        status = .inside
     }
 
-    // MARK: Perform Status
-
-    func performStatus(completion: @escaping (Bool, StatusModels.Error<ErrorType>?) -> Void) {
-        let isSuccessful = true
-        let error: StatusModels.Error<ErrorType>? = nil
-
-        completion(isSuccessful, error)
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        status = .outside
     }
 }

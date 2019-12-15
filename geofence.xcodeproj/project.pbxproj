@@ -24,8 +24,6 @@
 		B85E0F5D2395D0FE00A9442B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F572395D0FE00A9442B /* MapViewController.swift */; };
 		B85E0F5E2395D0FE00A9442B /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F582395D0FE00A9442B /* MapInteractor.swift */; };
 		B85E0F732395D24200A9442B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F722395D24200A9442B /* Constants.swift */; };
-		B8650CEF239E26B400D2E71D /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CEE239E26B400D2E71D /* GeofenceManager.swift */; };
-		B8650CF1239E27A800D2E71D /* GeofenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8650CF0239E27A800D2E71D /* GeofenceWorker.swift */; };
 		B8C8A38C23A05D0A001AB40F /* WifiSSIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */; };
 		B8C8A38E23A08F07001AB40F /* NumberUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */; };
 		B8C8A39123A0D35F001AB40F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8C8A39023A0D35F001AB40F /* Colors.xcassets */; };
@@ -64,8 +62,6 @@
 		B85E0F572395D0FE00A9442B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B85E0F582395D0FE00A9442B /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		B85E0F722395D24200A9442B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B8650CEE239E26B400D2E71D /* GeofenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
-		B8650CF0239E27A800D2E71D /* GeofenceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceWorker.swift; sourceTree = "<group>"; };
 		B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiSSIDTableViewCell.swift; sourceTree = "<group>"; };
 		B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtilities.swift; sourceTree = "<group>"; };
 		B8C8A39023A0D35F001AB40F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -162,8 +158,6 @@
 				B85E0F142394DF3A00A9442B /* AppDelegate.swift */,
 				B85E0F722395D24200A9442B /* Constants.swift */,
 				B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */,
-				B8650CEE239E26B400D2E71D /* GeofenceManager.swift */,
-				B8650CF0239E27A800D2E71D /* GeofenceWorker.swift */,
 				B8C8A39323A0D732001AB40F /* DataStore.swift */,
 			);
 			path = Shared;
@@ -294,7 +288,6 @@
 				B85E0F5A2395D0FE00A9442B /* MapWorker.swift in Sources */,
 				B85E0F4F2395D0E300A9442B /* StatusModels.swift in Sources */,
 				B85E0F592395D0FE00A9442B /* MapPresenter.swift in Sources */,
-				B8650CF1239E27A800D2E71D /* GeofenceWorker.swift in Sources */,
 				B85E0F4E2395D0E300A9442B /* StatusRouter.swift in Sources */,
 				B85E0F502395D0E300A9442B /* StatusViewController.swift in Sources */,
 				B85E0F732395D24200A9442B /* Constants.swift in Sources */,
@@ -307,7 +300,6 @@
 				B85E0F512395D0E300A9442B /* StatusInteractor.swift in Sources */,
 				B8C8A38C23A05D0A001AB40F /* WifiSSIDTableViewCell.swift in Sources */,
 				B85E0F5C2395D0FE00A9442B /* MapModels.swift in Sources */,
-				B8650CEF239E26B400D2E71D /* GeofenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
