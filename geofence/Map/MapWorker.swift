@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import SystemConfiguration.CaptiveNetwork
 
 class MapWorker {
 
@@ -34,8 +35,8 @@ class MapWorker {
 
     func performAddGeofence(coordinate: CLLocationCoordinate2D, radiusValue: Int, completion: @escaping (Bool, MapModels.Error<ErrorType>?) -> Void) {
 
-        DataStore.shared.coordinate1 = coordinate.latitude
-        DataStore.shared.coordinate2 = coordinate.longitude
+        DataStore.shared.latitude = coordinate.latitude
+        DataStore.shared.longitude = coordinate.longitude
         DataStore.shared.radius = radiusValue
 
         let isSuccessful = true

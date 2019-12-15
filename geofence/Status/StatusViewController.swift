@@ -74,12 +74,20 @@ class StatusViewController: UIViewController, StatusDisplayLogic {
 
     // MARK: - Use Case - Fetch Geofence Status
 
+    @IBOutlet var noticeLabel: UILabel!
     func setupFetchGeofenceStatus() {
         let request = StatusModels.FetchGeofenceStatus.Request()
         interactor?.fetchGeofenceStatus(with: request)
     }
 
     func displayFetchGeofenceStatus(with viewModel: StatusModels.FetchGeofenceStatus.ViewModel) {
+        if let error = viewModel.error {
+            noticeLabel.text = error.message
+        }
+        else {
+            noticeLabel.text = ""
+        }
+
         geofenceStatusLabel.text = viewModel.geofenceStatus
     }
 

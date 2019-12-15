@@ -14,7 +14,6 @@ protocol StatusBusinessLogic {
 }
 
 protocol StatusDataStore {
-    var exampleVariable: String? { get set }
 }
 
 class StatusInteractor: StatusBusinessLogic, StatusDataStore {
@@ -23,7 +22,6 @@ class StatusInteractor: StatusBusinessLogic, StatusDataStore {
 
     var worker: StatusWorker? = StatusWorker()
     var presenter: StatusPresentationLogic?
-    var exampleVariable: String?
 
     // MARK: - Use Case - Fetch From Local DataStore
 
@@ -36,8 +34,8 @@ class StatusInteractor: StatusBusinessLogic, StatusDataStore {
 
     func fetchGeofenceStatus(with request: StatusModels.FetchGeofenceStatus.Request) {
         worker?.fetchGeofenceStatus(completion: {
-            [weak self] status in
-            let response = StatusModels.FetchGeofenceStatus.Response(status: status)
+            [weak self] status, error in
+            let response = StatusModels.FetchGeofenceStatus.Response(status: status, error: error)
             self?.presenter?.presentFetchGeofenceStatus(with: response)
         })
     }

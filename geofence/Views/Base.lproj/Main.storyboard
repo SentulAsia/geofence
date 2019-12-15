@@ -45,14 +45,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2N-fv-y5I">
+                                <rect key="frame" x="20" y="595" width="374" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Pda-wl-Heq" firstAttribute="trailing" secondItem="khT-AV-o7s" secondAttribute="trailing" constant="16" id="3wD-gX-PsM"/>
+                            <constraint firstItem="N2N-fv-y5I" firstAttribute="top" secondItem="X0H-gd-VMA" secondAttribute="bottom" constant="8" id="CVi-Wb-nzz"/>
                             <constraint firstItem="X0H-gd-VMA" firstAttribute="centerY" secondItem="Pda-wl-Heq" secondAttribute="centerY" id="LcY-kc-d3K"/>
+                            <constraint firstItem="N2N-fv-y5I" firstAttribute="trailing" secondItem="X0H-gd-VMA" secondAttribute="trailing" id="VEH-GM-7w7"/>
                             <constraint firstItem="fVr-1A-75Y" firstAttribute="trailing" secondItem="X0H-gd-VMA" secondAttribute="trailing" id="VR9-VW-fI3"/>
                             <constraint firstItem="X0H-gd-VMA" firstAttribute="leading" secondItem="Pda-wl-Heq" secondAttribute="leading" constant="20" id="Xkc-j4-U1I"/>
                             <constraint firstItem="khT-AV-o7s" firstAttribute="leading" secondItem="Pda-wl-Heq" secondAttribute="leading" constant="16" id="dMb-4B-Dhf"/>
+                            <constraint firstItem="N2N-fv-y5I" firstAttribute="leading" secondItem="X0H-gd-VMA" secondAttribute="leading" id="iyI-uC-RBd"/>
                             <constraint firstItem="fVr-1A-75Y" firstAttribute="bottom" secondItem="X0H-gd-VMA" secondAttribute="bottom" id="kwy-Is-tA4"/>
                             <constraint firstItem="Pda-wl-Heq" firstAttribute="trailing" secondItem="X0H-gd-VMA" secondAttribute="trailing" constant="20" id="qVc-PB-TDe"/>
                             <constraint firstItem="khT-AV-o7s" firstAttribute="centerY" secondItem="Pda-wl-Heq" secondAttribute="centerY" id="rTC-AY-h1y"/>
@@ -68,6 +77,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="geofenceStatusLabel" destination="khT-AV-o7s" id="Shm-X9-DzN"/>
+                        <outlet property="noticeLabel" destination="N2N-fv-y5I" id="BzK-PX-neF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0A-rx-Epy" userLabel="First Responder" sceneMemberID="firstResponder"/>

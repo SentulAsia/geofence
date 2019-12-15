@@ -30,10 +30,12 @@ enum StatusModels {
 
         struct Response {
             var status: GeofenceStatus?
+            var error: Error<StatusErrorType>?
         }
 
         struct ViewModel {
             var geofenceStatus: String?
+            var error: Error<StatusErrorType>?
         }
     }
 
@@ -46,7 +48,7 @@ enum StatusModels {
     }
 
     enum StatusErrorType {
-        case emptyExampleVariable, apiError
+        case locationNotAuthorized, coordinateNotAvailable
     }
 
     struct Error<T> {

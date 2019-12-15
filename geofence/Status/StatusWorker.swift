@@ -22,11 +22,28 @@ class StatusWorker: NSObject {
 
     // MARK: Fetch Geofence Status
 
-    func fetchGeofenceStatus(completion: (_ status: StatusModels.GeofenceStatus) -> Void) {
+    func fetchGeofenceStatus(completion: @escaping (StatusModels.GeofenceStatus, StatusModels.Error<ErrorType>?) -> Void) {
+        var error: StatusModels.Error<ErrorType>?
+
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
 
-        completion(status)
+        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+            error = StatusModels.Error<ErrorType>(type: .locationNotAuthorized)
+        }
+
+        if error == nil {
+            if let latitude = DataStore.shared.latitude, let longitude = DataStore.shared.longitude, let radius = DataStore.shared.radius?.doubleValue {
+                let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                let region = CLCircularRegion(center: coordinate, radius: radius, identifier: Constants.geofenceIdentifier)
+                locationManager.startMonitoring(for: region)
+            }
+            else {
+                error = StatusModels.Error<ErrorType>(type: .coordinateNotAvailable)
+            }
+        }
+
+        completion(status, error)
     }
 }
 

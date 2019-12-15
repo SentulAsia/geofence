@@ -30,9 +30,21 @@ class StatusPresenter: StatusPresentationLogic {
     // MARK: - Use Case - Fetch Geofence Status
 
     func presentFetchGeofenceStatus(with response: StatusModels.FetchGeofenceStatus.Response) {
+        var responseError = response.error
         let status = response.status ?? .unknown
         let text = status.rawValue
-        let viewModel = StatusModels.FetchGeofenceStatus.ViewModel(geofenceStatus: text)
+
+        if let error = responseError {
+            switch error.type {
+            case .locationNotAuthorized:
+                responseError?.message = "Please enable always location permission in the settings."
+
+            case .coordinateNotAvailable:
+                responseError?.message = ""
+            }
+        }
+        
+        let viewModel = StatusModels.FetchGeofenceStatus.ViewModel(geofenceStatus: text, error: response.error)
         viewController?.displayFetchGeofenceStatus(with: viewModel)
     }
 }

@@ -13,3 +13,9 @@ extension Double {
         return Int(self)
     }
 }
+
+extension Int {
+    var doubleValue: Double {
+        return Double(self)
+    }
+}

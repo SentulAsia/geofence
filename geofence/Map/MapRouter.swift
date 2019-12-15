@@ -27,15 +27,5 @@ class MapRouter: NSObject, MapRoutingLogic, MapDataPassing {
 
     func routeToGeofenceStatus() {
         viewController?.navigationController?.popViewController(animated: true)
-        // let destinationVC = UIStoryboard(name: "", bundle: nil).instantiateViewController(withIdentifier: "") as! NextViewController
-        // var destinationDS = destinationVC.router!.dataStore!
-        // passDataTo(destinationDS, from: dataStore!)
-        // viewController?.navigationController?.pushViewController(destinationVC, animated: true)
     }
-
-    // MARK: - Data Passing
-
-    // func passDataTo(_ destinationDS: inout NextDataStore, from sourceDS: MapDataStore) {
-    //     destinationDS.attribute = sourceDS.attribute
-    // }
 }

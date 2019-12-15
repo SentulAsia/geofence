@@ -10,4 +10,5 @@ import Foundation
 
 struct Constants {
     static let mainStoryboard = "Main"
+    static let geofenceIdentifier = "kGeofence"
 }

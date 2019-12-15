@@ -27,14 +27,6 @@ class StatusRouter: NSObject, StatusRoutingLogic, StatusDataPassing {
 
     func routeToAddGeofence() {
          let destinationVC = UIStoryboard(name: Constants.mainStoryboard, bundle: nil).instantiateViewController(withIdentifier: MapViewController.Constants.identifier) as! MapViewController
-//         var destinationDS = destinationVC.router!.dataStore!
-//         passDataTo(destinationDS, from: dataStore!)
          viewController?.navigationController?.pushViewController(destinationVC, animated: true)
     }
-
-    // MARK: - Data Passing
-
-//     func passDataTo(_ destinationDS: inout MapDataStore, from sourceDS: StatusDataStore) {
-//         destinationDS.attribute = sourceDS.attribute
-//     }
 }
