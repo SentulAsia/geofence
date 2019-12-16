@@ -10,6 +10,7 @@ import UIKit
 
 protocol MapBusinessLogic {
     func fetchFromLocalDataStore(with request: MapModels.FetchFromLocalDataStore.Request)
+    func fetchWifiSSID(with request: MapModels.FetchWifiSSID.Request)
     func performChangeRadiusValue(with request: MapModels.PerformChangeRadiusValue.Request)
     func performAddGeofence(with request: MapModels.PerformAddGeofence.Request)
 }
@@ -23,12 +24,24 @@ class MapInteractor: MapBusinessLogic, MapDataStore {
 
     var worker: MapWorker? = MapWorker()
     var presenter: MapPresentationLogic?
+    var wifiManager: WifiManager? = WifiManager()
 
     // MARK: - Use Case - Fetch From Local DataStore
 
     func fetchFromLocalDataStore(with request: MapModels.FetchFromLocalDataStore.Request) {
         let response = MapModels.FetchFromLocalDataStore.Response()
         presenter?.presentFetchFromLocalDataStore(with: response)
+    }
+
+    // MARK: - Use Case - Fetch Wifi SSID
+
+    func fetchWifiSSID(with request: MapModels.FetchWifiSSID.Request) {
+        wifiManager?.fetchWifiSSID(completion: {
+            [weak self] (wifiSSID) in
+            DataStore.shared.wifiSSID = wifiSSID
+            let response = MapModels.FetchWifiSSID.Response(wifiSSID: wifiSSID)
+            self?.presenter?.presentFetchWifiSSID(with: response)
+        })
     }
 
     // MARK: - Use Case - Change Radius Value

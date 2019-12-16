@@ -24,6 +24,7 @@
 		B85E0F5D2395D0FE00A9442B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F572395D0FE00A9442B /* MapViewController.swift */; };
 		B85E0F5E2395D0FE00A9442B /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F582395D0FE00A9442B /* MapInteractor.swift */; };
 		B85E0F732395D24200A9442B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F722395D24200A9442B /* Constants.swift */; };
+		B8B630D623A7044F0005CAF2 /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B630D523A7044F0005CAF2 /* WifiManager.swift */; };
 		B8C8A38C23A05D0A001AB40F /* WifiSSIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */; };
 		B8C8A38E23A08F07001AB40F /* NumberUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */; };
 		B8C8A39123A0D35F001AB40F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8C8A39023A0D35F001AB40F /* Colors.xcassets */; };
@@ -62,6 +63,8 @@
 		B85E0F572395D0FE00A9442B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B85E0F582395D0FE00A9442B /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		B85E0F722395D24200A9442B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B8B630D223A6FE790005CAF2 /* geofence.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = geofence.entitlements; sourceTree = "<group>"; };
+		B8B630D523A7044F0005CAF2 /* WifiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
 		B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiSSIDTableViewCell.swift; sourceTree = "<group>"; };
 		B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtilities.swift; sourceTree = "<group>"; };
 		B8C8A39023A0D35F001AB40F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 				B85E0F132394DF3A00A9442B /* geofence */,
 				B85E0F282394DF3F00A9442B /* geofenceTests */,
 				B85E0F122394DF3A00A9442B /* Products */,
+				B8B630CF23A6FE790005CAF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +117,7 @@
 				B85E0F5F2395D10300A9442B /* Map */,
 				B8C8A38F23A0D30D001AB40F /* Views */,
 				B85E0F202394DF3F00A9442B /* Info.plist */,
+				B8B630D223A6FE790005CAF2 /* geofence.entitlements */,
 			);
 			path = geofence;
 			sourceTree = "<group>";
@@ -157,10 +162,18 @@
 			children = (
 				B85E0F142394DF3A00A9442B /* AppDelegate.swift */,
 				B85E0F722395D24200A9442B /* Constants.swift */,
-				B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */,
 				B8C8A39323A0D732001AB40F /* DataStore.swift */,
+				B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */,
+				B8B630D523A7044F0005CAF2 /* WifiManager.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		B8B630CF23A6FE790005CAF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B8C8A38F23A0D30D001AB40F /* Views */ = {
@@ -231,6 +244,17 @@
 				TargetAttributes = {
 					B85E0F102394DF3A00A9442B = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 					B85E0F242394DF3F00A9442B = {
 						CreatedOnToolsVersion = 10.3;
@@ -289,6 +313,7 @@
 				B85E0F4F2395D0E300A9442B /* StatusModels.swift in Sources */,
 				B85E0F592395D0FE00A9442B /* MapPresenter.swift in Sources */,
 				B85E0F4E2395D0E300A9442B /* StatusRouter.swift in Sources */,
+				B8B630D623A7044F0005CAF2 /* WifiManager.swift in Sources */,
 				B85E0F502395D0E300A9442B /* StatusViewController.swift in Sources */,
 				B85E0F732395D24200A9442B /* Constants.swift in Sources */,
 				B85E0F5E2395D0FE00A9442B /* MapInteractor.swift in Sources */,
@@ -460,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = geofence/geofence.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH72SXNYZ3;
 				INFOPLIST_FILE = geofence/Info.plist;
@@ -478,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = geofence/geofence.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CH72SXNYZ3;
 				INFOPLIST_FILE = geofence/Info.plist;

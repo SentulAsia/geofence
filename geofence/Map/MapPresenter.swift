@@ -10,6 +10,7 @@ import UIKit
 
 protocol MapPresentationLogic {
     func presentFetchFromLocalDataStore(with response: MapModels.FetchFromLocalDataStore.Response)
+    func presentFetchWifiSSID(with response: MapModels.FetchWifiSSID.Response)
     func presentPerformChangeRadiusValue(with response: MapModels.PerformChangeRadiusValue.Response)
     func presentPerformAddGeofence(with response: MapModels.PerformAddGeofence.Response)
 }
@@ -26,6 +27,13 @@ class MapPresenter: MapPresentationLogic {
         let geofenceButtonText = "Add Geofence"
         let viewModel = MapModels.FetchFromLocalDataStore.ViewModel(geofenceButtonText: geofenceButtonText)
         viewController?.displayFetchFromLocalDataStore(with: viewModel)
+    }
+
+    // MARK: - Use Case - Fetch Wifi SSID
+
+    func presentFetchWifiSSID(with response: MapModels.FetchWifiSSID.Response) {
+        let viewModel = MapModels.FetchWifiSSID.ViewModel(wifiSSID: response.wifiSSID)
+        viewController?.displayFetchWifiSSID(with: viewModel)
     }
 
     // MARK: - Use Case - Change Radius Value

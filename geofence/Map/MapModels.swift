@@ -25,6 +25,19 @@ enum MapModels {
         }
     }
 
+    enum FetchWifiSSID {
+        struct Request {
+        }
+
+        struct Response {
+            var wifiSSID: String?
+        }
+
+        struct ViewModel {
+            var wifiSSID: String?
+        }
+    }
+
     enum PerformChangeRadiusValue {
         struct Request {
             var radiusValue: Int

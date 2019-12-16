@@ -11,6 +11,7 @@ import MapKit
 
 protocol MapDisplayLogic: class {
     func displayFetchFromLocalDataStore(with viewModel: MapModels.FetchFromLocalDataStore.ViewModel)
+    func displayFetchWifiSSID(with viewModel: MapModels.FetchWifiSSID.ViewModel)
     func displayPerformChangeRadiusValue(with viewModel: MapModels.PerformChangeRadiusValue.ViewModel)
     func displayPerformAddGeofence(with viewModel: MapModels.PerformAddGeofence.ViewModel)
 }
@@ -25,6 +26,7 @@ class MapViewController: UIViewController, MapDisplayLogic {
     enum Constants {
         static let identifier = "MapVC"
         static let regionMeters: CLLocationDistance = 10000
+        static let tableViewHeight: CGFloat = 44
         static let errorHeight: CGFloat = 88
     }
 
@@ -63,6 +65,11 @@ class MapViewController: UIViewController, MapDisplayLogic {
         setupFetchFromLocalDataStore()
         setupTableView()
         setupNoticeView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupFetchWifiSSID()
     }
 
     // MARK: - Table View
@@ -109,6 +116,23 @@ class MapViewController: UIViewController, MapDisplayLogic {
         performChangeRadiusValue(self)
     }
 
+    // MARK: - Use Case - Fetch Wifi SSID
+
+    var wifiSSID: String?
+    func setupFetchWifiSSID() {
+        let request = MapModels.FetchWifiSSID.Request()
+        interactor?.fetchWifiSSID(with: request)
+    }
+
+    func displayFetchWifiSSID(with viewModel: MapModels.FetchWifiSSID.ViewModel) {
+        wifiSSID = viewModel.wifiSSID
+        if wifiSSID != nil {
+            tableView.isHidden = false
+            tableViewHeightConstraint.constant = Constants.tableViewHeight
+            tableView.reloadData()
+        }
+    }
+
     // MARK: - Use Case - Change Radius Value
 
     @IBAction func performChangeRadiusValue(_ sender: Any) {
@@ -151,12 +175,12 @@ class MapViewController: UIViewController, MapDisplayLogic {
 
 extension MapViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: handle this in Wifi SSID task
-        return 0
+        return wifiSSID == nil ? 0 : 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WifiSSIDTableViewCell.Constants.identifier, for: indexPath) as! WifiSSIDTableViewCell
+        cell.textLabel?.text = wifiSSID
         return cell
     }
 }
