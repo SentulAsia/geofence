@@ -25,6 +25,7 @@
 		B85E0F5E2395D0FE00A9442B /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F582395D0FE00A9442B /* MapInteractor.swift */; };
 		B85E0F732395D24200A9442B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85E0F722395D24200A9442B /* Constants.swift */; };
 		B8B630D623A7044F0005CAF2 /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B630D523A7044F0005CAF2 /* WifiManager.swift */; };
+		B8B630E623A70BAE0005CAF2 /* StatusPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B630E223A70BAE0005CAF2 /* StatusPresenterTests.swift */; };
 		B8C8A38C23A05D0A001AB40F /* WifiSSIDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */; };
 		B8C8A38E23A08F07001AB40F /* NumberUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */; };
 		B8C8A39123A0D35F001AB40F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8C8A39023A0D35F001AB40F /* Colors.xcassets */; };
@@ -65,6 +66,7 @@
 		B85E0F722395D24200A9442B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B8B630D223A6FE790005CAF2 /* geofence.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = geofence.entitlements; sourceTree = "<group>"; };
 		B8B630D523A7044F0005CAF2 /* WifiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
+		B8B630E223A70BAE0005CAF2 /* StatusPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPresenterTests.swift; sourceTree = "<group>"; };
 		B8C8A38B23A05D0A001AB40F /* WifiSSIDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiSSIDTableViewCell.swift; sourceTree = "<group>"; };
 		B8C8A38D23A08F07001AB40F /* NumberUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberUtilities.swift; sourceTree = "<group>"; };
 		B8C8A39023A0D35F001AB40F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				B85E0F2B2394DF3F00A9442B /* Info.plist */,
+				B8B630E723A70E070005CAF2 /* Status */,
 			);
 			path = geofenceTests;
 			sourceTree = "<group>";
@@ -174,6 +177,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B8B630E723A70E070005CAF2 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				B8B630E223A70BAE0005CAF2 /* StatusPresenterTests.swift */,
+			);
+			path = Status;
 			sourceTree = "<group>";
 		};
 		B8C8A38F23A0D30D001AB40F /* Views */ = {
@@ -332,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B630E623A70BAE0005CAF2 /* StatusPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
