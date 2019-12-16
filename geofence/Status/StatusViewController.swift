@@ -11,6 +11,7 @@ import UIKit
 protocol StatusDisplayLogic: class {
     func displayFetchFromLocalDataStore(with viewModel: StatusModels.FetchFromLocalDataStore.ViewModel)
     func displayFetchGeofenceStatus(with viewModel: StatusModels.FetchGeofenceStatus.ViewModel)
+    func displayFetchWifiSSID(with viewModel: StatusModels.FetchWifiSSID.ViewModel)
 }
 
 class StatusViewController: UIViewController, StatusDisplayLogic {
@@ -83,12 +84,39 @@ class StatusViewController: UIViewController, StatusDisplayLogic {
     func displayFetchGeofenceStatus(with viewModel: StatusModels.FetchGeofenceStatus.ViewModel) {
         if let error = viewModel.error {
             noticeLabel.text = error.message
-        }
-        else {
+        } else {
             noticeLabel.text = ""
         }
 
         geofenceStatusLabel.text = viewModel.geofenceStatus
+
+        if viewModel.status == .inside {
+            statusBorderView.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1)
+        } else {
+            setupFetchWifiSSID()
+        }
+    }
+
+    // MARK: - Use Case - Fetch Wifi SSID
+
+    @IBOutlet var wifiImageView: UIImageView!
+    @IBOutlet var statusBorderView: UIView!
+    var wifiSSID: String?
+    func setupFetchWifiSSID() {
+        let request = StatusModels.FetchWifiSSID.Request()
+        interactor?.fetchWifiSSID(with: request)
+    }
+
+    func displayFetchWifiSSID(with viewModel: StatusModels.FetchWifiSSID.ViewModel) {
+        geofenceStatusLabel.text = viewModel.geofenceStatus
+        
+        if viewModel.wifiEnabled {
+            wifiImageView.image = #imageLiteral(resourceName: "wi-fi-connected")
+            statusBorderView.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1)
+        } else {
+            wifiImageView.image = #imageLiteral(resourceName: "wi-fi-disconnected")
+            statusBorderView.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
+        }
     }
 
     // MARK: - Use Case - Add Geofence

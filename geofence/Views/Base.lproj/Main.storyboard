@@ -78,6 +78,8 @@
                     <connections>
                         <outlet property="geofenceStatusLabel" destination="khT-AV-o7s" id="Shm-X9-DzN"/>
                         <outlet property="noticeLabel" destination="N2N-fv-y5I" id="BzK-PX-neF"/>
+                        <outlet property="statusBorderView" destination="X0H-gd-VMA" id="qwG-FT-s6A"/>
+                        <outlet property="wifiImageView" destination="fVr-1A-75Y" id="xS2-rD-no0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0A-rx-Epy" userLabel="First Responder" sceneMemberID="firstResponder"/>

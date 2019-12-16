@@ -24,8 +24,7 @@ class MapWorker {
         // TODO: validate coordinate
         if radiusValue < 100 || radiusValue > 2128000 {
             error = MapModels.Error<ErrorType>(type: .invalidRadius)
-        }
-        else {
+        } else {
             error = nil
         }
     }

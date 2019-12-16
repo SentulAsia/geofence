@@ -34,8 +34,24 @@ enum StatusModels {
         }
 
         struct ViewModel {
+            var status: GeofenceStatus?
             var geofenceStatus: String?
             var error: Error<StatusErrorType>?
+        }
+    }
+
+    enum FetchWifiSSID {
+        struct Request {
+        }
+
+        struct Response {
+            var wifiEnabled: Bool
+            var status: GeofenceStatus?
+        }
+
+        struct ViewModel {
+            var wifiEnabled: Bool
+            var geofenceStatus: String?
         }
     }
 

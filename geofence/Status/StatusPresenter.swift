@@ -11,6 +11,7 @@ import UIKit
 protocol StatusPresentationLogic {
     func presentFetchFromLocalDataStore(with response: StatusModels.FetchFromLocalDataStore.Response)
     func presentFetchGeofenceStatus(with response: StatusModels.FetchGeofenceStatus.Response)
+    func presentFetchWifiSSID(with response: StatusModels.FetchWifiSSID.Response)
 }
 
 class StatusPresenter: StatusPresentationLogic {
@@ -32,7 +33,7 @@ class StatusPresenter: StatusPresentationLogic {
     func presentFetchGeofenceStatus(with response: StatusModels.FetchGeofenceStatus.Response) {
         var responseError = response.error
         let status = response.status ?? .unknown
-        let text = status.rawValue
+        let geofenceStatus = status.rawValue
 
         if let error = responseError {
             switch error.type {
@@ -44,7 +45,16 @@ class StatusPresenter: StatusPresentationLogic {
             }
         }
         
-        let viewModel = StatusModels.FetchGeofenceStatus.ViewModel(geofenceStatus: text, error: response.error)
+        let viewModel = StatusModels.FetchGeofenceStatus.ViewModel(status: response.status, geofenceStatus: geofenceStatus, error: response.error)
         viewController?.displayFetchGeofenceStatus(with: viewModel)
+    }
+
+    // MARK: - Use Case - Fetch Wifi SSID
+
+    func presentFetchWifiSSID(with response: StatusModels.FetchWifiSSID.Response) {
+        let geofenceStatus = response.wifiEnabled ? StatusModels.GeofenceStatus.inside.rawValue : response.status?.rawValue
+
+        let viewModel = StatusModels.FetchWifiSSID.ViewModel(wifiEnabled: response.wifiEnabled, geofenceStatus: geofenceStatus)
+        viewController?.displayFetchWifiSSID(with: viewModel)
     }
 }

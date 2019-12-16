@@ -37,8 +37,7 @@ class StatusWorker: NSObject {
                 let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                 let region = CLCircularRegion(center: coordinate, radius: radius, identifier: Constants.geofenceIdentifier)
                 locationManager.startMonitoring(for: region)
-            }
-            else {
+            } else {
                 error = StatusModels.Error<ErrorType>(type: .coordinateNotAvailable)
             }
         }
